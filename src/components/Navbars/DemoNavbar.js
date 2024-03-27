@@ -110,7 +110,7 @@ function Header(props) {
 
       <Container fluid>
 
-        {/* Name of Page with button  */}
+        {/* Button to open/close the Sidebar  */}
         <div className="navbar-wrapper">
           <div className="navbar-toggle">
             <button
@@ -124,31 +124,34 @@ function Header(props) {
               <span className="navbar-toggler-bar bar3" />
             </button>
           </div>
-          <NavbarBrand href="/">{getBrand()}</NavbarBrand>
+          {/* <NavbarBrand href="/">{getBrand()}</NavbarBrand> */}
         </div>
 
 
-        <NavbarToggler onClick={toggle}>
+        {/* <NavbarToggler onClick={toggle}>
           <span className="navbar-toggler-bar navbar-kebab" />
           <span className="navbar-toggler-bar navbar-kebab" />
           <span className="navbar-toggler-bar navbar-kebab" />
-        </NavbarToggler>
-        
-        <Collapse isOpen={isOpen} navbar className="justify-content-end">
+        </NavbarToggler> */}
 
-
-          {/* Search Bar */}
-          <form>
+             {/* Search Bar */}
+             <form>
             <InputGroup className="no-border">
               <Input placeholder="Search for data ..." />
               <InputGroupAddon addonType="append">
                 <InputGroupText>
-                  <i className="nc-icon nc-zoom-split" />
+                  <i className="nc-icon nc-zoom-split"  style={{ paddingRight: '25px' }}/>
+                  <i className="nc-icon nc-ruler-pencil" />
                 </InputGroupText>
               </InputGroupAddon>
             </InputGroup>
           </form>
 
+        
+        <Collapse isOpen={isOpen} navbar className="justify-content-end">
+
+
+     
 
           <Nav navbar>
 

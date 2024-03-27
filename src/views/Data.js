@@ -40,7 +40,9 @@ function Dashboard() {
   return (
     <>
       <div className="content">
-        <Row>
+
+        <h1> Hello World!</h1>
+        {/* <Row>
           <Col lg="3" md="6" sm="6">
             <Card className="card-stats">
               <CardBody>
@@ -145,8 +147,11 @@ function Dashboard() {
               </CardFooter>
             </Card>
           </Col>
-        </Row>
-        <Row>
+        </Row> */}
+
+
+
+        {/* <Row>
           <Col md="12">
             <Card>
               <CardHeader>
@@ -169,7 +174,10 @@ function Dashboard() {
               </CardFooter>
             </Card>
           </Col>
-        </Row>
+        </Row> */}
+
+
+{/* 
         <Row>
           <Col md="4">
             <Card>
@@ -223,7 +231,10 @@ function Dashboard() {
               </CardFooter>
             </Card>
           </Col>
-        </Row>
+        </Row> */}
+
+
+
       </div>
     </>
   );
