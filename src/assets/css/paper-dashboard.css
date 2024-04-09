@@ -20,6 +20,55 @@ Licensed under the MIT license - http://opensource.org/licenses/MIT
 
 Copyright (c) 2015 Daniel Eden
 */
+
+.display-window {
+  background-color: #fff; /* White background */
+  border: 1px solid #ccc; /* Gray border */
+  padding: 20px; /* Add padding for content */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow */
+
+  margin-top: 75px;
+}
+
+.display-window h2 {
+  /*margin-top: 100px; /* Remove default margin for heading */
+  font-weight: bold;
+}
+
+.display-window-display {
+  height: 100px;
+}
+
+.marcus-content {
+  margin-bottom: 5px; 
+  margin-top: 5px;
+
+}
+
+.list-group {
+  margin-top: 5px;
+}
+
+.icon-button {
+  border:rgba(0, 0, 0, 0);
+  /* background-color: rgb(237, 237, 234); */
+  background-color: rgba(0, 0, 0, 0);
+}
+/* 
+.scrollable-window {
+
+  height: "200px";
+  overflow: "auto";
+} */
+/* .content {
+  margin-top: 10px; 
+} 
+ */
+
+
+
+
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;
@@ -3143,7 +3192,7 @@ License - nucleoapp.com/license/
   top: 0;
   height: 100%;
   bottom: 0;
-  width: 260px;
+  width: 180px;
   left: 0;
   z-index: 1030;
   border-right: 1px solid #ddd; }
@@ -3152,7 +3201,7 @@ License - nucleoapp.com/license/
     position: relative;
     height: calc(100vh - 75px);
     overflow: auto;
-    width: 260px;
+    width: 180px;
     z-index: 4;
     padding-bottom: 100px; }
     .sidebar .sidebar-wrapper .dropdown .dropdown-backdrop,
@@ -3471,7 +3520,7 @@ License - nucleoapp.com/license/
 .main-panel {
   position: relative;
   float: right;
-  width: calc(100% - 260px);
+  width: calc(100% - 180px);
   background-color: #f4f3ef;
   -webkit-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
   -moz-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
@@ -3493,7 +3542,7 @@ License - nucleoapp.com/license/
   max-height: 100%; }
 
 .panel-header {
-  height: 260px;
+  height: 180px;
   padding-top: 80px;
   padding-bottom: 45px;
   background: #141E30;
@@ -4050,11 +4099,11 @@ License - nucleoapp.com/license/
     transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1); }
   .nav-open .main-panel {
     right: 0;
-    -webkit-transform: translate3d(260px, 0, 0);
-    -moz-transform: translate3d(260px, 0, 0);
-    -o-transform: translate3d(260px, 0, 0);
-    -ms-transform: translate3d(260px, 0, 0);
-    transform: translate3d(260px, 0, 0); }
+    -webkit-transform: translate3d(180px, 0, 0);
+    -moz-transform: translate3d(180px, 0, 0);
+    -o-transform: translate3d(180px, 0, 0);
+    -ms-transform: translate3d(180px, 0, 0);
+    transform: translate3d(180px, 0, 0); }
   .nav-open .sidebar {
     -webkit-transform: translate3d(0px, 0, 0);
     -moz-transform: translate3d(0px, 0, 0);
@@ -4065,11 +4114,11 @@ License - nucleoapp.com/license/
     position: relative;
     overflow-x: hidden; }
   .nav-open .menu-on-right .main-panel {
-    -webkit-transform: translate3d(-260px, 0, 0);
-    -moz-transform: translate3d(-260px, 0, 0);
-    -o-transform: translate3d(-260px, 0, 0);
-    -ms-transform: translate3d(-260px, 0, 0);
-    transform: translate3d(-260px, 0, 0); }
+    -webkit-transform: translate3d(-180px, 0, 0);
+    -moz-transform: translate3d(-180px, 0, 0);
+    -o-transform: translate3d(-180px, 0, 0);
+    -ms-transform: translate3d(-180px, 0, 0);
+    transform: translate3d(-180px, 0, 0); }
   .nav-open .menu-on-right .navbar-collapse,
   .nav-open .menu-on-right .sidebar {
     -webkit-transform: translate3d(0px, 0, 0);
@@ -4084,16 +4133,16 @@ License - nucleoapp.com/license/
     -ms-transform: translate3d(-300px, 0, 0);
     transform: translate3d(-300px, 0, 0); }
   .nav-open .menu-on-right #bodyClick {
-    right: 260px;
+    right: 180px;
     left: auto; }
   .menu-on-right .sidebar {
     left: auto;
     right: 0;
-    -webkit-transform: translate3d(260px, 0, 0);
-    -moz-transform: translate3d(260px, 0, 0);
-    -o-transform: translate3d(260px, 0, 0);
-    -ms-transform: translate3d(260px, 0, 0);
-    transform: translate3d(260px, 0, 0); }
+    -webkit-transform: translate3d(180px, 0, 0);
+    -moz-transform: translate3d(180px, 0, 0);
+    -o-transform: translate3d(180px, 0, 0);
+    -ms-transform: translate3d(180px, 0, 0);
+    transform: translate3d(180px, 0, 0); }
   .bar1,
   .bar2,
   .bar3 {
@@ -4288,7 +4337,7 @@ License - nucleoapp.com/license/
     opacity: 1;
     top: 0;
     right: 0;
-    left: 260px;
+    left: 180px;
     content: "";
     z-index: 9999;
     overflow-x: hidden;
@@ -4311,7 +4360,7 @@ License - nucleoapp.com/license/
     display: block;
     top: 0;
     height: 100%;
-    width: 260px;
+    width: 180px;
     right: auto;
     left: 0;
     z-index: 1032;
@@ -4323,11 +4372,11 @@ License - nucleoapp.com/license/
     -o-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
     -ms-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
     transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
-    -webkit-transform: translate3d(-260px, 0, 0);
-    -moz-transform: translate3d(-260px, 0, 0);
-    -o-transform: translate3d(-260px, 0, 0);
-    -ms-transform: translate3d(-260px, 0, 0);
-    transform: translate3d(-260px, 0, 0); }
+    -webkit-transform: translate3d(-180px, 0, 0);
+    -moz-transform: translate3d(-180px, 0, 0);
+    -o-transform: translate3d(-180px, 0, 0);
+    -ms-transform: translate3d(-180px, 0, 0);
+    transform: translate3d(-180px, 0, 0); }
   .main-panel {
     width: 100%; }
   .timeline:before {

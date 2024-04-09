@@ -17,6 +17,10 @@
 
 */
 import React from "react";
+
+import { useState } from "react";
+import Data from "views/Data.js";
+
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 import { Route, Routes, useLocation } from "react-router-dom";
@@ -35,6 +39,32 @@ function Dashboard(props) {
   const [activeColor, setActiveColor] = React.useState("info");
   const mainPanel = React.useRef();
   const location = useLocation();
+
+  const [searchBarInput, setSearchBarInput] = React.useState("");
+  const [searchPress, setSearchPress] = React.useState(0);
+
+  // Function to handle changes in navbarInput
+  const handleNavbarInputChange = (input) => {
+    setSearchBarInput(input);
+    // console.log(searchBarInput);
+  };
+
+  // Function to handle when the search button is pressed
+  const handleSearchButtonPress = () => {
+    console.log("searchbarinput: ");
+    console.log(searchBarInput);
+
+    setSearchPress(1);
+
+    // TODO: pass the input to the Data View
+
+    // TODO: inside of the data, when input changes, filter objs
+  };
+
+  const handleClearButtonAdmin = () => {
+    setSearchPress(1);
+  };
+
   React.useEffect(() => {
     if (navigator.platform.indexOf("Win") > -1) {
       ps = new PerfectScrollbar(mainPanel.current);
@@ -57,6 +87,7 @@ function Dashboard(props) {
   const handleBgClick = (color) => {
     setBackgroundColor(color);
   };
+
   return (
     <div className="wrapper">
       <Sidebar
@@ -66,9 +97,28 @@ function Dashboard(props) {
         activeColor={activeColor}
       />
       <div className="main-panel" ref={mainPanel}>
-        <DemoNavbar {...props} />
+        {/* Navbar */}
+        <DemoNavbar
+          {...props}
+          handleNavbarInputChange={(event) => handleNavbarInputChange(event)}
+          handleSearchButtonPress={() => handleSearchButtonPress()}
+          handleClearButtonAdmin={() => handleClearButtonAdmin()}
+        />
+
+        {/* Route to the View */}
         <Routes>
-          {routes.map((prop, key) => {
+          <Route
+            path={"/data"}
+            element={
+              <Data
+                searchBarInput={searchBarInput}
+                searchPress={searchPress}
+                setSearchPress={setSearchPress}
+              />
+            }
+            exact
+          />
+          {/* {routes.map((prop, key) => {
             return (
               <Route
                 path={prop.path}
@@ -77,18 +127,18 @@ function Dashboard(props) {
                 exact
               />
             );
-          })}
+          })} */}
         </Routes>
+
         <Footer fluid />
       </div>
 
-      
-      <FixedPlugin
+      {/* <FixedPlugin
         bgColor={backgroundColor}
         activeColor={activeColor}
         handleActiveClick={handleActiveClick}
         handleBgClick={handleBgClick}
-      />
+      /> */}
     </div>
   );
 }

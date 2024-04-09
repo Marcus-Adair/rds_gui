@@ -16,8 +16,9 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React, { useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
+import "../../assets/css/paper-dashboard.css";
 import {
   Collapse,
   Navbar,
@@ -38,12 +39,41 @@ import {
 
 import routes from "routes.js";
 
-function Header(props) {
+function Header({
+  props,
+  handleNavbarInputChange,
+  handleSearchButtonPress,
+  handleClearButtonAdmin,
+}) {
   const [isOpen, setIsOpen] = React.useState(false);
   const [dropdownOpen, setDropdownOpen] = React.useState(false);
   const [color, setColor] = React.useState("transparent");
   const sidebarToggle = React.useRef();
   const location = useLocation();
+
+  // State of the Search bar
+  const [inputValue, setInputValue] = useState("");
+
+  // Update inputValue on search bar change, and
+  // send changes to the parent component
+  const handleNavbarInputChangeLocal = (event) => {
+    const changedVal = event.target.value;
+    setInputValue(changedVal);
+    handleNavbarInputChange(changedVal);
+  };
+
+  // Clear search bar function
+  const handleClearButtonPress = () => {
+    setInputValue("");
+    handleNavbarInputChange("");
+    console.log("clear button pressed");
+
+    handleClearButtonAdmin();
+
+    // TODO:
+    //signal state to adm
+  };
+
   const toggle = () => {
     if (isOpen) {
       setColor("transparent");
@@ -91,9 +121,7 @@ function Header(props) {
   }, [location]);
   return (
     // add or remove classes depending if we are on full-screen-maps page or not
-   
-   
-   
+
     <Navbar
       color={
         location.pathname.indexOf("full-screen-maps") !== -1 ? "dark" : color
@@ -106,10 +134,7 @@ function Header(props) {
             (color === "transparent" ? "navbar-transparent " : "")
       }
     >
-
-
       <Container fluid>
-
         {/* Button to open/close the Sidebar  */}
         <div className="navbar-wrapper">
           <div className="navbar-toggle">
@@ -127,34 +152,47 @@ function Header(props) {
           {/* <NavbarBrand href="/">{getBrand()}</NavbarBrand> */}
         </div>
 
-
         {/* <NavbarToggler onClick={toggle}>
           <span className="navbar-toggler-bar navbar-kebab" />
           <span className="navbar-toggler-bar navbar-kebab" />
           <span className="navbar-toggler-bar navbar-kebab" />
         </NavbarToggler> */}
 
-             {/* Search Bar */}
-             <form>
-            <InputGroup className="no-border">
-              <Input placeholder="Search for data ..." />
-              <InputGroupAddon addonType="append">
-                <InputGroupText>
-                  <i className="nc-icon nc-zoom-split"  style={{ paddingRight: '25px' }}/>
-                  <i className="nc-icon nc-ruler-pencil" />
-                </InputGroupText>
-              </InputGroupAddon>
-            </InputGroup>
-          </form>
+        {/* Search Bar */}
+        <form>
+          <InputGroup className="no-border">
+            <Input
+              placeholder="Search for data ..."
+              onChange={handleNavbarInputChangeLocal}
+              value={inputValue}
+            />
 
-        
+            <InputGroupAddon addonType="append">
+              <InputGroupText>
+                {/* Search Button */}
+                <button
+                  type="button"
+                  className="icon-button"
+                  onClick={handleSearchButtonPress}
+                >
+                  <i className="nc-icon nc-zoom-split" />
+                </button>
+
+                {/* Clear Button */}
+                <button
+                  type="button"
+                  className="icon-button"
+                  onClick={handleClearButtonPress}
+                >
+                  <i className="nc-icon nc-simple-remove" />
+                </button>
+              </InputGroupText>
+            </InputGroupAddon>
+          </InputGroup>
+        </form>
+
         <Collapse isOpen={isOpen} navbar className="justify-content-end">
-
-
-     
-
           <Nav navbar>
-
             {/*  Button on the Nav Bar  */}
             {/* <NavItem>
               <Link to="#pablo" className="nav-link btn-magnify">
@@ -164,7 +202,6 @@ function Header(props) {
                 </p>
               </Link>
             </NavItem> */}
-
 
             {/*  Drop Down  */}
             {/* <Dropdown
@@ -187,7 +224,6 @@ function Header(props) {
 
             </Dropdown> */}
 
-
             {/* Settings Button */}
             <NavItem>
               <Link to="#pablo" className="nav-link btn-rotate">
@@ -197,16 +233,9 @@ function Header(props) {
                 </p>
               </Link>
             </NavItem>
-
-
-
           </Nav>
-          
         </Collapse>
       </Container>
-
-
-
     </Navbar>
   );
 }

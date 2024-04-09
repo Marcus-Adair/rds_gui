@@ -20,7 +20,6 @@ import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { Nav } from "reactstrap";
 
-
 // javascript plugin used to create scrollbars on windows
 import PerfectScrollbar from "perfect-scrollbar";
 
@@ -29,9 +28,6 @@ import logo from "logo.svg";
 var ps;
 
 function Sidebar(props) {
-
-
-  
   const location = useLocation();
   const sidebar = React.useRef();
   // verifies if routeName is the one active (in browser input)
@@ -49,7 +45,7 @@ function Sidebar(props) {
       if (navigator.platform.indexOf("Win") > -1) {
         ps.destroy();
       }
-    }; 
+    };
   });
   return (
     <div
@@ -57,21 +53,18 @@ function Sidebar(props) {
       data-color={props.bgColor}
       data-active-color={props.activeColor}
     >
-
-      
       <div className="logo">
-
         {/* Logo */}
-        <a
+        {/* <a
           href="https:// www.creative-tim.com"
           className="simple-text logo-mini"
         >
           <div className="logo-img">
             <img src="~/." alt="react-logo" />
           </div>
-        </a>
+        </a> */}
 
-
+        {/* Product Name */}
         <a
           // href="https://www.creative-tim.com"
           className="simple-text logo-normal"
@@ -80,8 +73,8 @@ function Sidebar(props) {
         </a>
       </div>
 
-      
-      {// 
+      {
+        //
       }
 
       <div className="sidebar-wrapper" ref={sidebar}>
@@ -95,12 +88,12 @@ function Sidebar(props) {
                 key={key}
               >
                 {/* Icon and Name */}
-                {prop.name === 'Streams' ? (
+                {prop.name === "Streams" ? (
                   // if Streams tab, make it not clickable
-                  <NavLink  className="nav-NavLink">
+                  <NavLink className="nav-NavLink">
                     <i className={prop.icon} />
                     <p>{prop.name}</p>
-                </NavLink>
+                  </NavLink>
                 ) : (
                   <NavLink to={prop.layout + prop.path} className="nav-NavLink">
                     <i className={prop.icon} />
@@ -108,19 +101,15 @@ function Sidebar(props) {
                   </NavLink>
                 )}
 
-
-
                 {/* <NavLink to={prop.layout + prop.path} className="nav-NavLink">
                   <i className={prop.icon} />
                   <p>{prop.name}</p>
                 </NavLink> */}
-
               </li>
             );
           })}
         </Nav>
       </div>
-
     </div>
   );
 }

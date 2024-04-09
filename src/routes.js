@@ -16,7 +16,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import Dashboard from "views/Data.js";
+import Data from "views/Data.js";
 // import Notifications from "views/Notifications.js";
 // import Icons from "views/Icons.js";
 // import Typography from "views/Typography.js";
@@ -30,7 +30,8 @@ var routes = [
     path: "/data",
     name: "Data",
     icon: "nc-icon nc-app",
-    component: <Dashboard />,
+    component: <Data searchBarInput={"shreet"} />,
+    //component: (input) => <Data searchBarInput={input} />,
     layout: "/admin",
   },
   {
@@ -40,7 +41,6 @@ var routes = [
     // component: <Icons />,
     layout: "/admin",
   },
-
 
   // Unused
 
